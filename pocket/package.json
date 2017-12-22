@@ -1,0 +1,15 @@
+{
+  "name": "pocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pokedex-promise-v2": "^3.0.3",
+    "pokemon-go-api": "0.0.11"
+  }
+}

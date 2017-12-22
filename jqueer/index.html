@@ -1,0 +1,29 @@
+<html>
+<head>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+<form>
+	<input type="file" name="bitch">
+	<input type="submit" name="sub">
+	</form>
+
+<script type="text/javascript">
+
+		fr=new FileReader();
+		input = document.querySelector('input');
+	$(document).ready(function(){
+		$("form").submit(function(e){
+			e.preventDefault();
+			console.log(e);
+			console.log(input.files[0])
+
+		});
+	})
+</script>
+
+</body>
+</html>

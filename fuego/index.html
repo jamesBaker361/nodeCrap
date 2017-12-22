@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head><script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+	<title></title>
+</head>
+<body>
+<p>rawr XD</p>
+<form method="post">
+	<input type="text" name="newName" id="newName">
+	<input type="password" name="newPassWord">
+</form>
+<div id="jamesName"></div>
+
+<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBIZl-PsYuVlhouOK_0Ul_3QANDfk37WwE",
+    authDomain: "esketit-d2d1d.firebaseapp.com",
+    databaseURL: "https://esketit-d2d1d.firebaseio.com",
+    projectId: "esketit-d2d1d",
+    storageBucket: "",
+    messagingSenderId: "1010825108662"
+  };
+  firebase.initializeApp(config);
+  var randomUser=function(){
+  	var g=["james","liz","thonk","lewk","macks"];
+  	return(g[Math.floor(5*Math.random())]+g[Math.floor(5*Math.random())]);
+  	//return('james');
+  };
+
+  /*firebase.auth().createUserWithEmailAndPassword("jlbaker361@gmail.com", "password1").catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+	});*/
+
+
+
+firebase.auth().signInWithEmailAndPassword("jlbaker361@gmail.com", "password1").catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+	firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+  var user = firebase.auth().currentUser;
+
+	//firebase.initializeApp(defaultAppConfig);
+	var defaultDatabase = firebase.database();
+	window.setTimeout(function(){
+		console.log("it is "+Date.now()+" my doodz");
+		defaultDatabase.ref('users/james').set({
+			name: randomUser(),
+			time: Date.now()
+		})
+	},100);
+	defaultDatabase.ref('users/james').on('value',function(a){
+		console.log(a);
+	})
+</script>
+<script type="text/javascript">
+</script>
+</body>
+</html>

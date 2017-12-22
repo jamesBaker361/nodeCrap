@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBIZl-PsYuVlhouOK_0Ul_3QANDfk37WwE",
+    authDomain: "esketit-d2d1d.firebaseapp.com",
+    databaseURL: "https://esketit-d2d1d.firebaseio.com",
+    projectId: "esketit-d2d1d",
+    storageBucket: "",
+    messagingSenderId: "1010825108662"
+  };
+  firebase.initializeApp(config);
+  </script>
+  <script type="text/javascript" src="angular/home/home.controller.js"></script>
+        <script type="text/javascript" src="angular/home/home.module.js"></script>
+  <script type="text/javascript" src="angular/login/login.controller.js"></script>
+        <script type="text/javascript" src="angular/login/login.module.js"></script>
+        <script type="text/javascript" src="angular/app.js"></script>
+	<title></title>
+</head>
+<body>
+<div ng-app="myApp">
+<div ng-view></div>
+</div>
+
+</body>
+</html>
